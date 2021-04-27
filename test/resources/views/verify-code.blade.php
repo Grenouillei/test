@@ -12,20 +12,21 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="get" action="{{ route('cabinet') }}">
         @csrf
 
         <!-- Email Address -->
+                <div style="margin-left: 25px;margin-bottom: 15px;">We sent you a confirmation code on your email!</div>
             <div>
-                <x-label for="code" :value="__('Code')" />
-
-                <x-input id="code" class="block mt-1 w-full" type="text" name="code" :value="old('code')" required autofocus />
+                <x-input id="code" class="block mt-1 w-full" type="text" name="code" :value="old('code')" placeholder="Code" required autofocus />
             </div>
-
-
+            <br>
+            <x-button class="ml-40">
+                Confirm
+            </x-button>
         </form>
 
-        <div>We </div>
+
     </x-auth-card>
 
 </x-guest-layout>

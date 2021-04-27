@@ -21,8 +21,14 @@ Route::get('/code', function () {
     return view('verify-code');
 })->middleware(['auth'])->name('code');
 
+Route::get('/email', function () {
+    return view('email');
+})->middleware(['auth'])->name('email');
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+   return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/cabinet','App\Http\Controllers\UserController@userVerifyCode')->middleware(['auth'])->name('cabinet');
 
 require __DIR__.'/auth.php';

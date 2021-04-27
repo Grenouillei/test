@@ -10,6 +10,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -25,11 +26,8 @@ class RegisteredUserController extends Controller
 
     /**
      * Handle an incoming registration request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * @param  RegisterRequest  $request
+     * @return mixed
      */
     public function store(RegisterRequest $request)
     {
@@ -42,6 +40,7 @@ class RegisteredUserController extends Controller
             'city' => $request->city,
             'state' => $request->state,
             'country' => $request->country,
+            'code' => rand(100000,900000),
             'password' => Hash::make($request->password),
         ]);
 
@@ -49,6 +48,14 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        $to_name = Auth::user()->name;
+        $to_email = Auth::user()->email;
+        $data = array('code'=>rand(100000,900000));
+        Mail::send('email', $data, function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)->subject('Confirmation code for authorization!');
+            $message->from("yulik15zaytpa@gmail.com",'Activation');
+        });
+
+        return redirect('code');
     }
 }
