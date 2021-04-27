@@ -4,7 +4,7 @@ To install the project you need:
 
 -have composer installed 
 
-rename .env.example to .env and modify email/database
+clone repository, rename .env.example to .env and modify email/database
 
 Open project and run:
 
