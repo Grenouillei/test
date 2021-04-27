@@ -6,34 +6,27 @@
             </a>
         </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-        </div>
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        @if (session('status') == 'verification-link-sent')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+        <form method="get" action="{{ route('cabinet') }}">
+        @csrf
+
+        <!-- Email Address -->
+            <div style="margin-left: 25px;margin-bottom: 15px;">We sent you a confirmation code on your email!</div>
+            <div>
+                <x-input id="code" class="block mt-1 w-full" type="text" name="code" :value="old('code')" placeholder="Code" required autofocus />
             </div>
-        @endif
+            <br>
+            <x-button class="ml-40">
+                Confirm
+            </x-button>
+        </form>
 
-        <div class="mt-4 flex items-center justify-between">
-            <form method="POST" action="{{ route('verification.send') }}">
-                @csrf
 
-                <div>
-                    <x-button>
-                        {{ __('Resend Verification Email') }}
-                    </x-button>
-                </div>
-            </form>
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-
-                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    {{ __('Log out') }}
-                </button>
-            </form>
-        </div>
     </x-auth-card>
+
 </x-guest-layout>

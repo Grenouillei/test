@@ -23,11 +23,11 @@ Route::get('/code', function () {
 
 Route::get('/email', function () {
     return view('email');
-})->middleware(['auth'])->name('email');
+})->name('email');
 
 Route::get('/dashboard', function () {
    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth','verified'])->name('dashboard');
 
 Route::get('/cabinet','App\Http\Controllers\UserController@userVerifyCode')->middleware(['auth'])->name('cabinet');
 

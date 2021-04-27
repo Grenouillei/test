@@ -14,50 +14,50 @@
 
             <!-- Name -->
             <div class="mt-2">
-                <x-label for="login" :value="__('Login')" />
+                <x-label for="login" :value="__('Login')" style="margin-left: 15px;"/>
 
-                <x-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus />
+                <x-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')"  required autofocus />
             </div>
 
             <div class="mt-2">
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="name" :value="__('Name')" style="margin-left: 15px;"/>
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <div class="mt-2">
-                <x-label for="birthday" :value="__('Birthday')" />
+                <x-label for="birthday" :value="__('Birthday')" style="margin-left: 15px;"/>
 
                 <x-input id="birthday" class="block mt-1 w-full" type="text" name="birthday" :value="old('birthday')" required autofocus />
             </div>
             <div class="mt-2">
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="email" :value="__('Email')" style="margin-left: 15px;"/>
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
             <div class="mt-2">
-                <x-label for="address" :value="__('Address')" />
+                <x-label for="address" :value="__('Address')" style="margin-left: 15px;"/>
 
                 <x-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus />
             </div>
             <div class="mt-2">
-                <x-label for="city" :value="__('City')" />
+                <x-label for="city" :value="__('City')" style="margin-left: 15px;"/>
 
                 <x-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required autofocus />
             </div>
             <div class="mt-2">
-                <x-label for="state" :value="__('State')" />
+                <x-label for="state" :value="__('State')" style="margin-left: 15px;"/>
 
                 <x-input id="state" class="block mt-1 w-full" type="text" name="state" :value="old('state')" required autofocus />
             </div>
             <div class="mt-2">
-                <x-label for="country" :value="__('Country')" />
+                <x-label for="country" :value="__('Country')" style="margin-left: 15px;"/>
 
                 <x-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')" required autofocus />
             </div>
             <!-- Password -->
             <div class="mt-2">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('Password')" style="margin-left: 15px;"/>
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -67,7 +67,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-2">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('Confirm Password')" style="margin-left: 15px;"/>
 
                 <x-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"

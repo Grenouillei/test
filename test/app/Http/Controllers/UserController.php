@@ -15,9 +15,11 @@ class UserController extends Controller
      */
     public function userVerifyCode(Request $req){
         $user = User::find(Auth::user()->id);
-            if($req->code==$user->code)
+            if($req->code==$user->code){
+                $user->email_verified_at = now();
+                $user->save();
                 return redirect('dashboard');
-            else
+            } else
                 return redirect('code');
     }
 }
